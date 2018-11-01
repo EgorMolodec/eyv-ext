@@ -1,0 +1,33 @@
+{
+	"manifest_version": 2,
+	"name": "EZ English",
+	"version": "1.0",
+	"description": "Test extension!",
+	"icons":{
+		"128": "icon128.png",
+		"48": "icon48.png",
+		"16": "icon16.png"
+	},
+	"browser_action":{
+		"default_icon": "icon16.png",
+		"default_popup": "login.html"
+	},
+	"content_scripts": [
+		{
+		  "matches":["http://*/*","https://*/*"],
+		  "css": ["contentscript.css"],
+		  "run_at": "document_idle",
+		  "js": ["content.js"]
+		}
+	],
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+	"permissions": [
+		"tabs",
+		"<all_urls>",
+		"storage" 
+    ]
+
+}
